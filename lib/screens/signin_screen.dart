@@ -20,61 +20,73 @@ class _SigninScreenState extends State<SigninScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('sign in')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          //todo 5
-          TextFormField(
-            controller: _usernameController,
-            decoration: InputDecoration(
-              labelText: 'Nama Pengguna',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          const SizedBox(height: 20),
-          //todo 6
-          TextFormField(
-            controller: _passwordController,
-            decoration: InputDecoration(
-              labelText: "Kata Sandi",
-              border: OutlineInputBorder(),
-              errorText: _errorText.isNotEmpty ? _errorText : null,
-              suffixIcon: IconButton(
-                onPressed: () {
-                  setState(() {
-                    _obsecurepassword = !_obsecurepassword;
-                  });
-                },
-                icon: Icon(
-                  _obsecurepassword ? Icons.visibility_off : Icons.visibility,
-                ),
-              ),
-            ),
-            obscureText: _obsecurepassword,
-          ),
-          //todo 7
-          const SizedBox(height: 20),
-          ElevatedButton(onPressed: () {}, child: const Text('sign in')),
-          //todo 8
-          const SizedBox(height: 10),
-          RichText(
-            text: TextSpan(
-              text: 'Belum punya akun? ',
-              style: const TextStyle(fontSize: 16, color: Colors.deepPurple),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                TextSpan(
-                  text: 'Daftar di sini.',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline,
+                //todo 5
+                TextFormField(
+                  controller: _usernameController,
+                  decoration: InputDecoration(
+                    labelText: 'Nama Pengguna',
+                    border: OutlineInputBorder(),
                   ),
-                  recognizer: TapGestureRecognizer()..onTap = () {},
+                ),
+                const SizedBox(height: 20),
+                //todo 6
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    labelText: "Kata Sandi",
+                    border: OutlineInputBorder(),
+                    errorText: _errorText.isNotEmpty ? _errorText : null,
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _obsecurepassword = !_obsecurepassword;
+                        });
+                      },
+                      icon: Icon(
+                        _obsecurepassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
+                    ),
+                  ),
+                  obscureText: _obsecurepassword,
+                ),
+                //todo 7
+                const SizedBox(height: 20),
+                ElevatedButton(onPressed: () {}, child: const Text('sign in')),
+                //todo 8
+                const SizedBox(height: 10),
+                RichText(
+                  text: TextSpan(
+                    text: 'Belum punya akun? ',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.deepPurple,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Daftar di sini.',
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                        recognizer: TapGestureRecognizer()..onTap = () {},
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
