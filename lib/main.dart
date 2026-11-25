@@ -3,6 +3,7 @@ import 'package:flutter_wisata_candi_2627_51/data/candi_data.dart';
 import 'package:flutter_wisata_candi_2627_51/providers/favorite_provider.dart';
 import 'package:flutter_wisata_candi_2627_51/screens/detail_contoh.dart';
 import 'package:flutter_wisata_candi_2627_51/screens/detail_screen.dart';
+import 'package:flutter_wisata_candi_2627_51/screens/home_screen.dart';
 import 'package:flutter_wisata_candi_2627_51/screens/profile.screens.dart';
 import 'package:flutter_wisata_candi_2627_51/screens/search_screen.dart';
 import 'package:flutter_wisata_candi_2627_51/screens/signin_screen.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: SearchScreen(),
+      home: HomeScreen(),
     );
   }
 }
